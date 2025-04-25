@@ -676,6 +676,7 @@
 		{/if}
 	{/if}
 </div> <!-- itemscope product wrapper -->
+	{hook h='displayProductTab' product=$product}
 {strip}
 {if isset($smarty.get.ad) && $smarty.get.ad}
 	{addJsDefL name=ad}{$base_dir|cat:$smarty.get.ad|escape:'html':'UTF-8'}{/addJsDefL}
