@@ -31,3 +31,9 @@ admin-dev/import/
 download/
 /img/*
 upload/
+.DS_Store
+000-default.conf
+Dockerfile
+docker-compose.yml
+phpmyadmin/
+test.sql
