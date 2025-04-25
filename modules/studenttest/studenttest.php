@@ -32,20 +32,21 @@ class StudentTest extends Module
     public function hookDisplayAdminProductsExtra($params)
     {
 
+        $product = new Product((int)$params['id_product']);
 
-
-        // return the html form
-        // the submit button must have submitAddCustomField as name to work
-        // the input text must have short_desc as name
-
-        // instanciate the product class with the parameter get id_product
-        // save the value of the form short_desc on product class
-        // use the method save on product class to persist date in database
-
-
-
-        $output = '';
-        return $output;
+        if (Tools::isSubmit('submitAddCustomField')) {
+            $product->short_desc = Tools::getValue('short_desc');
+            $product->save();
+        }
+    
+        return '
+            <form method="post" action="">
+                <label for="short_desc">' . $this->l('Short Desc') . ':</label>
+                <input type="text" name="short_desc" value="' . $product->short_desc . '" />
+                <button type="submit" name="submitAddCustomField"' . $this->l('Save') . '</button>
+            </form>
+        ';
+    
     }
 
     public function hookDisplayProductTab($params)
